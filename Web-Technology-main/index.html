@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="WebVerse — interactive Web Technology learning platform with notes, quizzes, diagrams and code playground.">
+    <meta name="theme-color" content="#090d1c">
+    <title>WebVerse — Explore Web Technology</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <div id="loader" class="loader">
+        <div class="loader-mark">W</div><span>Preparing your learning space</span>
+    </div>
+    <header class="topbar"><a href="#home" class="brand" data-home><span
+                class="brand-logo">W<span>.</span></span><span>WebVerse</span></a><button class="menu-toggle"
+            id="menuToggle" aria-label="Open navigation">☰</button>
+        <nav class="nav-links" id="navLinks"><a href="#home" data-home>Home</a><a href="#units"
+                data-section="units">Syllabus</a><a href="#playground" data-section="playground">Playground</a><a
+                href="#quiz" data-section="quiz">Quizzes</a></nav>
+        <div class="nav-actions"><button class="icon-btn" id="themeToggle" title="Toggle theme"
+                aria-label="Toggle theme">☼</button><a class="nav-start" href="#units" data-section="units">Start
+                learning <span>↗</span></a></div>
+    </header>
+    <main id="app">
+        <section id="home" class="hero section-pad">
+            <div class="hero-copy reveal">
+                <div class="eyebrow"><span class="pulse-dot"></span> YOUR INTERACTIVE LEARNING SPACE</div>
+                <h1>Explore the World<br>of <span class="gradient-text">Web Technology</span><span
+                        class="typing-cursor">|</span></h1>
+                <p class="hero-sub">From the first Internet request to the intelligent web of tomorrow — understand
+                    every concept, practise real code and track your progress.</p>
+                <div class="hero-buttons"><a class="primary-btn ripple" href="#units" data-section="units">Start
+                        Learning <span>→</span></a><a class="secondary-btn" href="#units" data-section="units"><span
+                            class="play">▷</span> Explore syllabus</a></div>
+                <div class="hero-meta">
+                    <div class="avatar-stack"><i>H</i><i>C</i><i>J</i><i>W</i></div><span>5 units <b>·</b> 50+ lessons
+                        <b>·</b> learn at your pace</span>
+                </div>
+            </div>
+            <div class="hero-visual reveal">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="hero-core">
+                    <div class="core-icon">〈/〉</div><strong>WEB</strong><small>TECHNOLOGY</small>
+                </div>
+                <div class="float-card float-html"><b class="mini-tag orange">HTML</b><span>Structure</span></div>
+                <div class="float-card float-css"><b class="mini-tag blue">CSS</b><span>Design</span></div>
+                <div class="float-card float-js"><b class="mini-tag yellow">JS</b><span>Interaction</span></div>
+                <div class="float-card float-globe">◎ <span>Connected world</span></div>
+                <div class="visual-caption">BUILD YOUR WEB KNOWLEDGE</div>
+            </div>
+        </section>
+        <section class="stats-strip container reveal">
+            <div class="stat"><strong data-count="5">0</strong><span>Learning units</span></div>
+            <div class="stat"><strong data-count="50">0</strong><span>Topic lessons</span></div>
+            <div class="stat"><strong data-count="50">0</strong><span>Quiz questions</span></div>
+            <div class="stat"><strong>100%</strong><span>Self-paced learning</span></div>
+        </section>
+        <section id="units" class="section-pad container">
+            <div class="section-heading reveal">
+                <div>
+                    <div class="eyebrow">THE LEARNING ROADMAP</div>
+                    <h2>Explore the <span class="gradient-text">syllabus</span></h2>
+                    <p>Five carefully organised units take you from fundamental web concepts to future technologies.</p>
+                </div>
+                <div class="overall-progress">
+                    <div class="progress-label"><span>Your learning progress</span><b id="overallPct">0%</b></div>
+                    <div class="progress-track"><i id="overallBar"></i></div><small id="progressCount">0 topics
+                        completed</small>
+                </div>
+            </div>
+            <div class="unit-grid" id="unitGrid"></div>
+        </section>
+        <section class="section-pad featured-wrap">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="eyebrow">POPULAR CONCEPTS</div>
+                        <h2>Start with the <span class="gradient-text">essentials</span></h2>
+                        <p>Some foundational ideas worth understanding first.</p>
+                    </div><a class="text-link" href="#units" data-section="units">All topics ↗</a>
+                </div>
+                <div class="featured-grid" id="featuredGrid"></div>
+            </div>
+        </section>
+        <section id="learning" class="section-pad container">
+            <div class="section-heading reveal">
+                <div>
+                    <div class="eyebrow">YOUR PERSONAL DASHBOARD</div>
+                    <h2>Keep your <span class="gradient-text">momentum</span></h2>
+                    <p>Your completed lessons and quiz results are saved on this device.</p>
+                </div>
+            </div>
+            <div class="dashboard-grid">
+                <div class="dashboard-card progress-card reveal">
+                    <div class="card-top">
+                        <div><span class="card-kicker">LEARNING OVERVIEW</span>
+                            <h3>Progress snapshot</h3>
+                        </div><span class="card-icon">◒</span>
+                    </div>
+                    <div class="progress-ring" id="progressRing">
+                        <div><b id="ringPct">0%</b><small>completed</small></div>
+                    </div>
+                    <div class="ring-legend"><span><i class="legend-dot violet"></i> Completed lessons</span><strong
+                            id="completedTotal">0</strong></div>
+                    <div class="ring-legend"><span><i class="legend-dot muted-dot"></i> Remaining lessons</span><strong
+                            id="remainingTotal">0</strong></div>
+                </div>
+                <div class="dashboard-card unit-progress-card reveal">
+                    <div class="card-top">
+                        <div><span class="card-kicker">UNIT BREAKDOWN</span>
+                            <h3>Progress by unit</h3>
+                        </div><span class="card-icon">▥</span>
+                    </div>
+                    <div id="unitProgressRows"></div>
+                </div>
+                <div class="dashboard-card recent-card reveal">
+                    <div class="card-top">
+                        <div><span class="card-kicker">PICK UP WHERE YOU LEFT</span>
+                            <h3>Continue learning</h3>
+                        </div><span class="card-icon">↗</span>
+                    </div>
+                    <div id="continueArea">
+                        <p class="muted">Mark a lesson complete to build your learning history.</p><a href="#units"
+                            class="small-action" data-section="units">Browse units →</a>
+                    </div>
+                    <div class="quiz-best"><span>Best quiz score</span><b id="bestScore">—</b></div>
+                </div>
+            </div>
+        </section>
+        <section id="playground" class="section-pad playground-section">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="eyebrow">LEARN BY BUILDING</div>
+                        <h2>Interactive code <span class="gradient-text">playground</span></h2>
+                        <p>Experiment with HTML, CSS and JavaScript. Run your code in a sandboxed preview.</p>
+                    </div><span class="online-pill"><i></i> LOCAL PREVIEW</span>
+                </div>
+                <div class="playground reveal">
+                    <div class="play-toolbar">
+                        <div class="window-dots"><i></i><i></i><i></i></div><span
+                            class="play-file">webverse-demo.html</span>
+                        <div class="play-actions"><button class="subtle-btn" id="resetCode">↺ Reset</button><button
+                                class="run-btn" id="runCode">▶ Run code</button></div>
+                    </div>
+                    <div class="editor-layout">
+                        <div class="editor-side">
+                            <div class="editor-tabs"><button class="editor-tab active"
+                                    data-editor="html">HTML</button><button class="editor-tab"
+                                    data-editor="css">CSS</button><button class="editor-tab"
+                                    data-editor="js">JavaScript</button></div>
+                            <div class="editor-pane active" data-pane="html">
+                                <div class="editor-label"><span class="lang-dot html-dot"></span> index.html</div>
+                                <textarea id="htmlCode" spellcheck="false" aria-label="HTML code editor"></textarea>
+                            </div>
+                            <div class="editor-pane" data-pane="css">
+                                <div class="editor-label"><span class="lang-dot css-dot"></span> style.css</div>
+                                <textarea id="cssCode" spellcheck="false" aria-label="CSS code editor"></textarea>
+                            </div>
+                            <div class="editor-pane" data-pane="js">
+                                <div class="editor-label"><span class="lang-dot js-dot"></span> script.js</div><textarea
+                                    id="jsCode" spellcheck="false" aria-label="JavaScript code editor"></textarea>
+                            </div>
+                            <div class="editor-hint">Tip: Edit the code and press Run to see your changes.</div>
+                        </div>
+                        <div class="preview-side">
+                            <div class="preview-heading"><span>LIVE PREVIEW</span><span class="preview-status"><i></i>
+                                    Ready</span></div><iframe id="codePreview" title="Sandboxed code preview"
+                                sandbox="allow-scripts"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <p class="safety-note">Your code runs in an isolated iframe without same-origin access to this learning
+                    portal.</p>
+            </div>
+        </section>
+        <section id="quiz" class="section-pad container">
+            <div class="section-heading reveal">
+                <div>
+                    <div class="eyebrow">CHECK YOUR UNDERSTANDING</div>
+                    <h2>Challenge your <span class="gradient-text">knowledge</span></h2>
+                    <p>Choose a unit and answer ten questions. Get instant feedback and explanations.</p>
+                </div>
+            </div>
+            <div class="quiz-layout reveal">
+                <aside class="quiz-select"><span class="card-kicker">SELECT A UNIT</span>
+                    <div id="quizUnitList"></div>
+                    <div class="quiz-tip"><span>✦</span>
+                        <p>Take your time. Each question includes an explanation to help you learn.</p>
+                    </div>
+                </aside>
+                <div class="quiz-main" id="quizMain">
+                    <div class="quiz-welcome">
+                        <div class="quiz-symbol">✧</div><span class="eyebrow">READY TO PRACTISE?</span>
+                        <h3>Choose a unit to begin</h3>
+                        <p>Each unit quiz contains 10 multiple-choice questions with instant feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-pad demo-section">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="eyebrow">SEE THE WEB IN ACTION</div>
+                        <h2>Understand through <span class="gradient-text">visuals</span></h2>
+                        <p>Explore simple interactive diagrams that explain key web concepts.</p>
+                    </div>
+                </div>
+                <div class="diagram-tabs" id="diagramTabs"><button class="active"
+                        data-diagram="client">Client–Server</button><button data-diagram="dns">DNS</button><button
+                        data-diagram="http">HTTP flow</button><button data-diagram="ajax">AJAX</button><button
+                        data-diagram="evolution">Web evolution</button></div>
+                <div class="diagram-stage reveal" id="diagramStage"></div>
+            </div>
+        </section>
+        <section class="section-pad final-cta">
+            <div class="container cta-box reveal">
+                <div class="cta-orb"></div>
+                <div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</div>
+                <h2>Ready to understand the web?</h2>
+                <p>Explore the syllabus, practise a concept and make progress one lesson at a time.</p><a href="#units"
+                    data-section="units" class="primary-btn">Explore all units <span>→</span></a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container footer-main">
+            <div><a href="#home" class="brand footer-brand" data-home><span
+                        class="brand-logo">W<span>.</span></span><span>WebVerse</span></a>
+                <p>An interactive, student-friendly space to learn the fundamentals and future of Web Technology.</p>
+            </div>
+            <div class="footer-col"><b>Explore</b><a href="#units" data-section="units">Syllabus</a><a
+                    href="#playground" data-section="playground">Code playground</a><a href="#quiz"
+                    data-section="quiz">Unit quizzes</a></div>
+            <div class="footer-col"><b>Course</b><span>Web Technology</span><span>CS35302 · Semester
+                    V</span><span>B.Tech Computer Science</span></div>
+            <div class="footer-col"><b>Built with</b><span>HTML5</span><span>CSS3</span><span>Vanilla JavaScript</span>
+            </div>
+        </div>
+        <div class="container footer-bottom"><span>© <span id="year"></span> WebVerse Learning Hub</span><span>Made for
+                curious minds ✦</span></div>
+    </footer>
+    <div id="lessonModal" class="lesson-overlay" aria-hidden="true">
+        <div class="lesson-shell">
+            <div class="lesson-top"><button id="closeLesson" class="icon-btn" aria-label="Close topic">✕</button><span
+                    id="lessonBreadcrumb">UNIT 01</span>
+                <div class="lesson-top-actions"><button id="lessonTheme" class="icon-btn"
+                        title="Toggle theme">☼</button></div>
+            </div>
+            <div class="lesson-content" id="lessonContent"></div>
+        </div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
